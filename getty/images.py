@@ -15,14 +15,14 @@ try:
  if page.status_code == 200:
   # print(page.text)
   soup = BeautifulSoup(page.text, 'html.parser')
-  figures = soup.find_all('figure', limit=1)
+  figures = soup.find_all('figure', limit=20)
 
   for figure in figures:
    images = figure.img
    tags = images.attrs
    image_src = tags['src']
    desc = tags['alt']
-   print(f"IMAGE SRC : {image_src}\nIMAGE ALT : {desc}")
+   print(f"\nIMAGE SRC : {image_src}\nIMAGE ALT : {desc}\n\n")
 except e:
  print(f"There was an error {e}")
 
